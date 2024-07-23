@@ -7,10 +7,12 @@ class Manager(db.Model, SerializerMixin, UserMixin):
     __tablename__ = 'managers'
 
     id = db.Model(db.Integer, primary_key=True)
-    name = db.Model(db.String(80), nullable=False)
+    name = db.Model(db.String(100), nullable=False)
     email = db.Column(db.String(120),nullable=False)
-    phone_number = db.Model(db.Integer, nullable=False)
-    password_hash = db.Model(db.String, nullable=False)
+    phone_number = db.Model(db.String(15), nullable=False)
+    password_hash = db.Model(db.String(128), nullable=False)
+    tenants = db.relationship('Tenant', back_populates='manager')
+    apartments = db.relationship('Apartment', back_populates='manager')
 
     def set_password(self, password):
         self.password_hash = bcrypt.generate_password_hash(password).decode('utf-8')

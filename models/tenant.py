@@ -7,10 +7,10 @@ class Tenant(db.Model, SerializerMixin, UserMixin):
     __tablename__ = 'tenants'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False)
-    email = db.Column(db.String, unique=True, nullable=False)
-    phone_number = db.Column(db.String, unique=True, nullable=False)
-    password_hash = db.Column(db.String, nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    phone_number = db.Column(db.String(15), unique=True, nullable=False)
+    password_hash = db.Column(db.String(128), nullable=False)
     apartment_id = db.Column(db.Integer, db.ForeignKey('apartment.id'))
     manager_id = db.Column(db.Integer, db.ForeignKey('manager.id'))
 

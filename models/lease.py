@@ -6,10 +6,10 @@ class Lease(db.Model, SerializerMixin):
     __tablename__ = 'leases'
 
     id = db.Column(db.Integer, primary_key=True)
-    tenant_id = db.Column(db.Integer, db.ForeignKey('tenants.id'))
-    apartment_id = db.Column(db.Integer, db.ForeignKey('apartments.id'))
+    tenant_id = db.Column(db.Integer, db.ForeignKey('tenant.id'))
+    apartment_id = db.Column(db.Integer, db.ForeignKey('apartment.id'))
     start_date = db.Column(db.Date, nullable=False)
-    end_date = db.Column(db.Date, nullable=False)
+    end_date = db.Column(db.Date, nullable=True)
     payments = db.relationship('Payment', back_populates='lease')
 
     def __repr__(self):
