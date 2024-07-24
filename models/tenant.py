@@ -1,4 +1,4 @@
-from config import db, bcrypt
+from config.config import db, bcrypt
 from sqlalchemy_serializer import SerializerMixin
 from flask_login import UserMixin
 
@@ -11,8 +11,8 @@ class Tenant(db.Model, SerializerMixin, UserMixin):
     email = db.Column(db.String(100), unique=True, nullable=False)
     phone_number = db.Column(db.String(15), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
-    apartment_id = db.Column(db.Integer, db.ForeignKey('apartment.id'))
-    manager_id = db.Column(db.Integer, db.ForeignKey('manager.id'))
+    apartment_id = db.Column(db.Integer, db.ForeignKey('apartments.id'))
+    manager_id = db.Column(db.Integer, db.ForeignKey('managers.id'))
 
     apartment = db.relationship('Apartment', back_populates='tenant')
     manager = db.relationship('Manager', back_populates='tenants')
