@@ -58,7 +58,6 @@ class PaymentByID(Resource):
         try:
             manager_id = get_jwt_identity()
 
-            # Get the payment by ID
             payment = Payment.query.filter(Payment.id == id).first()
             if not payment:
                 return not_found('Payment')

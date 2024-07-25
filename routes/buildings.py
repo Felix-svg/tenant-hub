@@ -51,7 +51,6 @@ class BuildingByID(Resource):
             current_user_id = get_jwt_identity()
             current_user_role = get_jwt_role()
 
-            # Fetch the building by ID
             building = Building.query.filter(Building.id == id).first()
             if not building:
                 return not_found('Building')
@@ -61,8 +60,6 @@ class BuildingByID(Resource):
                 apartments = Apartment.query.filter_by(manager_id=current_user_id, building_id=id).all()
                 if not apartments:
                     return jsonify({"error": "Access denied"}), 403
-
-            # No additional checks needed for other roles
 
             building_dict = building.to_dict()
             return make_response(jsonify({'building': building_dict}), 200)
