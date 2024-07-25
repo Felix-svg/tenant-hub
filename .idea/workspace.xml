@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Add utility methods to handle common errors">
+    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Refactor the GET and POST methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/apartments.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apartments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/buildings.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/buildings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,13 +33,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/felix-omondi/PycharmProjects/tenant-hub/static"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/felix-omondi/PycharmProjects/tenant-hub/static&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static" />
@@ -112,7 +113,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721904232793</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Complete implementation of the apartment routes">
+      <option name="closed" value="true" />
+      <created>1721905481043</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721905481043</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Refactor the GET and POST methods">
+      <option name="closed" value="true" />
+      <created>1721907286096</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1721907286096</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,6 +150,8 @@
     <MESSAGE value="Initialize classes for routes &amp; database seeding file" />
     <MESSAGE value="Seed database" />
     <MESSAGE value="Add utility methods to handle common errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add utility methods to handle common errors" />
+    <MESSAGE value="Complete implementation of the apartment routes" />
+    <MESSAGE value="Refactor the GET and POST methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor the GET and POST methods" />
   </component>
 </project>
