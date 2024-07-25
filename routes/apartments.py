@@ -7,6 +7,13 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
 class Apartments(Resource):
+    def get(self):
+        try:
+            apartments = [apartment.to_dict(rules=['-building', '-manager', '-tenant']) for apartment in Apartment.query.all()]
+            return make_response(jsonify({'apartments': apartments}), 200)
+        except Exception as e:
+            return server_error(e)
+
     @jwt_required()
     @role_required('manager')
     def post(self):
@@ -31,12 +38,6 @@ class Apartments(Resource):
             return make_response(jsonify({'message':'Apartment created successfully'}), 201)
         except Exception as e:
             db.session.rollback()
-            return server_error(e)
-    def get(self):
-        try:
-            apartments = [apartment.to_dict(rules=['-building', '-manager', '-tenant']) for apartment in Apartment.query.all()]
-            return make_response(jsonify({'apartments': apartments}), 200)
-        except Exception as e:
             return server_error(e)
 
 
