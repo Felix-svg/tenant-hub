@@ -1,9 +1,10 @@
 from flask import make_response, jsonify, request
 from flask_restful import Resource
 from models.payment import Payment
+from models.apartment import Apartment
 from config import db
 from utils import role_required, not_found, no_input_data, missing_fields, server_error
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
 class Payments(Resource):
@@ -11,8 +12,17 @@ class Payments(Resource):
     @role_required('manager')
     def get(self):
         try:
-            payments = [payment.to_dict(rules=['-lease']) for payment in Payment.query.all()]
-            return make_response(jsonify({'payments': payments}), 200)
+            manager_id = get_jwt_identity()
+
+            # Get all apartments managed by the current manager
+            apartments = Apartment.query.filter_by(manager_id=manager_id).all()
+            apartment_ids = [apartment.id for apartment in apartments]
+
+            # Get all payments associated with these apartments
+            payments = Payment.query.filter(Payment.apartment_id.in_(apartment_ids)).all()
+
+            payments_dict = [payment.to_dict(rules=['-lease']) for payment in payments]
+            return make_response(jsonify({'payments': payments_dict}), 200)
         except Exception as e:
             return server_error(e)
 
