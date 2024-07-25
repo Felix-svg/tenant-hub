@@ -7,9 +7,12 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
 class Apartments(Resource):
+    @jwt_required()
+    @role_required('manager')
     def get(self):
         try:
-            apartments = [apartment.to_dict(rules=['-building', '-manager', '-tenant']) for apartment in Apartment.query.all()]
+            manager_id = get_jwt_identity()
+            apartments = [apartment.to_dict(rules=['-building', '-manager', '-tenant']) for apartment in Apartment.query.filter_by(manager_id=manager_id).all()]
             return make_response(jsonify({'apartments': apartments}), 200)
         except Exception as e:
             return server_error(e)
