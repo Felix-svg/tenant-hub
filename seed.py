@@ -1,5 +1,6 @@
 from datetime import date
 from config import app, db
+from models.admin import Admin
 from models.apartment import Apartment
 from models.building import Building
 from models.lease import Lease
@@ -9,6 +10,7 @@ from models.tenant import Tenant
 
 with app.app_context():
     print('Deleting all records')
+    Admin.query.delete()
     Apartment.query.delete()
     Building.query.delete()
     Lease.query.delete()
@@ -16,7 +18,11 @@ with app.app_context():
     Payment.query.delete()
     Tenant.query.delete()
 
-    print('Creating apartments, buildings, leases, managers, payments, and tenants')
+    print('Creating apartments, buildings, leases, managers, payments, admin, and tenants')
+    admin = Admin(name='Admin', email='admin@tenanthub.com', phone_number='0123456789')
+    admin.set_password('Admin')
+    db.session.add(admin)
+    db.session.commit()
     manager = Manager(name='John Doe', email='manager@tenanthub.com', phone_number='0712345658')
     manager.set_password('Manager')
     db.session.add(manager)

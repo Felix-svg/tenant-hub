@@ -1,4 +1,5 @@
 from config import app, api
+from models.admin import Admin
 from routes.index import Index, Favicon
 from routes.apartments import Apartments, ApartmentByID
 from routes.buildings import Buildings, BuildingByID
