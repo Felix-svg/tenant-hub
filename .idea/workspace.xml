@@ -4,18 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Initialize classes for routes &amp; database seeding file">
-      <change afterPath="$PROJECT_DIR$/seed.py" afterDir="false" />
+    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Seed database">
+      <change afterPath="$PROJECT_DIR$/models/token_block_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/seed.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/instance/tenant_hub.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/tenant_hub.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instance/tenant_hub.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/alembic.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/bbdc0eba43df_initial_migration.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/models/apartment.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/apartment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/building.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/building.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/lease.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/lease.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/payment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/tenant.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/tenant.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/apartments.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apartments.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/buildings.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/buildings.py" afterDir="false" />
@@ -48,13 +53,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/felix-omondi/PycharmProjects/tenant-hub/static"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/config" />
@@ -108,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721849709328</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Seed database">
+      <option name="closed" value="true" />
+      <created>1721892131318</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721892131318</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,6 +144,7 @@
     <MESSAGE value="Define model classes" />
     <MESSAGE value="Add column constraints to models" />
     <MESSAGE value="Initialize classes for routes &amp; database seeding file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialize classes for routes &amp; database seeding file" />
+    <MESSAGE value="Seed database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Seed database" />
   </component>
 </project>

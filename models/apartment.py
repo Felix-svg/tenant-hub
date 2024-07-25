@@ -12,10 +12,8 @@ class Apartment(db.Model, SerializerMixin):
     manager_id = db.Column(db.Integer, db.ForeignKey('managers.id'))
 
     tenant = db.relationship('Tenant', back_populates='apartment')
-    building = db.relationship('Building', back_populates='apartment')
-    manager = db.relationship('Manager', back_populates='apartment')
+    building = db.relationship('Building', back_populates='apartments')
+    manager = db.relationship('Manager', back_populates='apartments')
 
     def __repr__(self):
         return f'<Apartment {self.id}>'
-
-

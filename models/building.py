@@ -9,9 +9,7 @@ class Building(db.Model, SerializerMixin):
     name = db.Column(db.String(120), nullable=False)
     address = db.Column(db.String(200), nullable=False)
 
-    apartment = db.relationship('Apartment', back_populates='building')
+    apartments = db.relationship('Apartment', back_populates='building')
 
     def __repr__(self):
         return f'<{self.name}, Location: {self.address}>'
-
-

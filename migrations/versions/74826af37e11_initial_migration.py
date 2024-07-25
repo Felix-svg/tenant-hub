@@ -1,8 +1,8 @@
 """Initial migration
 
-Revision ID: bbdc0eba43df
+Revision ID: 74826af37e11
 Revises: 
-Create Date: 2024-07-24 21:59:21.169181
+Create Date: 2024-07-25 12:43:03.366352
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'bbdc0eba43df'
+revision = '74826af37e11'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -30,6 +30,13 @@ def upgrade():
     sa.Column('email', sa.String(length=120), nullable=False),
     sa.Column('phone_number', sa.String(length=15), nullable=False),
     sa.Column('password_hash', sa.String(length=128), nullable=False),
+    sa.Column('role', sa.String(length=50), server_default='manager', nullable=True),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('token_blocklist',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('jti', sa.String(length=36), nullable=False),
+    sa.Column('created_at', sa.DateTime(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('apartments',
@@ -51,6 +58,7 @@ def upgrade():
     sa.Column('password_hash', sa.String(length=128), nullable=False),
     sa.Column('apartment_id', sa.Integer(), nullable=True),
     sa.Column('manager_id', sa.Integer(), nullable=True),
+    sa.Column('role', sa.String(length=50), server_default='tenant', nullable=True),
     sa.ForeignKeyConstraint(['apartment_id'], ['apartments.id'], ),
     sa.ForeignKeyConstraint(['manager_id'], ['managers.id'], ),
     sa.PrimaryKeyConstraint('id'),
@@ -84,6 +92,7 @@ def downgrade():
     op.drop_table('leases')
     op.drop_table('tenants')
     op.drop_table('apartments')
+    op.drop_table('token_blocklist')
     op.drop_table('managers')
     op.drop_table('buildings')
     # ### end Alembic commands ###
