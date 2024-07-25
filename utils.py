@@ -1,10 +1,18 @@
 from flask import jsonify, make_response
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required, get_jwt_identity, get_jwt, create_access_token
 from models.token_block_list import TokenBlocklist
 from models.tenant import Tenant
 from models.manager import Manager
 from functools import wraps
 from config import jwt
+
+
+# def create_jwt_token(user):
+#     additional_claims = {
+#         'role': user.role
+#     }
+#     access_token = create_access_token(identity=user.id, additional_claims=additional_claims)
+#     return access_token
 
 
 @jwt.token_in_blocklist_loader
@@ -36,6 +44,11 @@ def role_required(required_role):
         return decorated_view
 
     return wrapper
+
+
+def get_jwt_role():
+    claims = get_jwt()
+    return claims.get('role', None)
 
 
 def not_found(model_instance):
