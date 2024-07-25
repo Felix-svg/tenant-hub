@@ -35,7 +35,7 @@ class Apartments(Resource):
             db.session.add(new_apartment)
             db.session.commit()
 
-            return make_response(jsonify({'message':'Apartment created successfully'}), 201)
+            return make_response(jsonify({'message': 'Apartment created successfully'}), 201)
         except Exception as e:
             db.session.rollback()
             return server_error(e)
@@ -85,7 +85,6 @@ class ApartmentByID(Resource):
     def delete(self, id):
         try:
             apartment = Apartment.query.filter(Apartment.id == id).first()
-
             if not apartment:
                 return not_found('Apartment')
 

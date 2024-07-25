@@ -12,7 +12,7 @@ class Tenants(Resource):
     def get(self):
         try:
             tenants = [tenant.to_dict(rules=['-apartment', '-manager']) for tenant in Tenant.query.all()]
-            return make_response(jsonify({'tenants': tenants}))
+            return make_response(jsonify({'tenants': tenants}), 200)
         except Exception as e:
             return server_error(e)
 
@@ -31,7 +31,7 @@ class Tenants(Resource):
             apartment_id = data.get('apartment_id')
             manager_id = data.get('manager_id')
 
-            if not name or not email or not phone_number or not apartment_id or not manager_id:
+            if not all([name, email, phone_number, apartment_id, manager_id, password]):
                 return missing_fields()
 
             new_tenant = Tenant(name=name, email=email, phone_number=phone_number, apartment_id=apartment_id, manager_id=manager_id)
@@ -40,7 +40,7 @@ class Tenants(Resource):
             db.session.add(new_tenant)
             db.session.commit()
 
-            return make_response(jsonify({'message': 'Tenant create successfully'}), 201)
+            return make_response(jsonify({'message': 'Tenant created successfully'}), 201)
         except Exception as e:
             db.session.rollback()
             return server_error(e)
@@ -60,6 +60,7 @@ class TenantByID(Resource):
         except Exception as e:
             return server_error(e)
 
+    @jwt_required()
     @role_required('manager')
     def patch(self, id):
         try:
@@ -117,4 +118,3 @@ class TenantByID(Resource):
         except Exception as e:
             db.session.rollback()
             return server_error(e)
-

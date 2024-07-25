@@ -3,7 +3,7 @@ from flask_restful import Resource
 from models.building import Building
 from config import db
 from utils import role_required, not_found, no_input_data, server_error, missing_fields
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required
 
 
 class Buildings(Resource):
@@ -39,7 +39,7 @@ class Buildings(Resource):
 
 
 class BuildingByID(Resource):
-    def get(self):
+    def get(self, id):
         try:
             building = Building.query.filter(Building.id == id).first()
             if not building:
@@ -63,9 +63,13 @@ class BuildingByID(Resource):
                 return no_input_data()
 
             name = data.get('name')
+            address = data.get('address')
 
             if name is not None:
                 building.name = name
+
+            if address is not None:
+                building.address = address
 
             db.session.commit()
             return make_response(jsonify({'message': 'Building updated successfully'}), 200)
@@ -83,10 +87,7 @@ class BuildingByID(Resource):
 
             db.session.delete(building)
             db.session.commit()
-
-            return make_response(jsonify({'message':'Building deleted successfully'}), 200)
+            return make_response(jsonify({'message': 'Building deleted successfully'}), 200)
         except Exception as e:
             db.session.rollback()
             return server_error(e)
-
-

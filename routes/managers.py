@@ -7,6 +7,8 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
 class Managers(Resource):
+    @jwt_required()
+    @role_required('admin')
     def get(self):
         try:
             managers = [manager.to_dict(rules=['-tenants', '-apartments']) for manager in Manager.query.all()]
@@ -14,6 +16,8 @@ class Managers(Resource):
         except Exception as e:
             return server_error(e)
 
+    @jwt_required()
+    @role_required('admin')
     def post(self):
         try:
             data = request.get_json()
@@ -26,7 +30,7 @@ class Managers(Resource):
             password = data.get('password')
             role = data.get('role')
 
-            if not name or not email or not phone_number or not password or not role:
+            if not all([name, email, phone_number, password, role]):
                 return missing_fields()
 
             new_manager = Manager(name=name, email=email, phone_number=phone_number, role=role)
@@ -40,8 +44,9 @@ class Managers(Resource):
             db.session.rollback()
             return server_error(e)
 
-
 class ManagerByID(Resource):
+    @jwt_required()
+    @role_required('admin')
     def get(self, id):
         try:
             manager = Manager.query.filter(Manager.id == id).first()
@@ -53,6 +58,8 @@ class ManagerByID(Resource):
         except Exception as e:
             return server_error(e)
 
+    @jwt_required()
+    @role_required('admin')
     def patch(self, id):
         try:
             manager = Manager.query.filter(Manager.id == id).first()
@@ -86,6 +93,8 @@ class ManagerByID(Resource):
             db.session.rollback()
             return server_error(e)
 
+    @jwt_required()
+    @role_required('admin')
     def delete(self, id):
         try:
             manager = Manager.query.filter(Manager.id == id).first()
