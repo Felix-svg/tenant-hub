@@ -11,7 +11,8 @@ class Tenants(Resource):
     @role_required('manager')
     def get(self):
         try:
-            tenants = [tenant.to_dict(rules=['-apartment', '-manager']) for tenant in Tenant.query.all()]
+            manager_id = get_jwt_identity()
+            tenants = [tenant.to_dict(rules=['-apartment', '-manager']) for tenant in Tenant.query.filter_by(manager_id==manager_id.all())]
             return make_response(jsonify({'tenants': tenants}), 200)
         except Exception as e:
             return server_error(e)
@@ -51,7 +52,8 @@ class TenantByID(Resource):
     @role_required('manager')
     def get(self, id):
         try:
-            tenant = Tenant.query.filter(Tenant.id == id).first()
+            manager_id = get_jwt_identity()
+            tenant = Tenant.query.filter_by(id=id, manager_id=manager_id).first()
             if not tenant:
                 return not_found('Tenant')
 
@@ -59,6 +61,7 @@ class TenantByID(Resource):
             return make_response(jsonify({'tenant': tenant_dict}), 200)
         except Exception as e:
             return server_error(e)
+
 
     @jwt_required()
     @role_required('manager')
