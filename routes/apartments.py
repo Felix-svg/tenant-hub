@@ -2,7 +2,7 @@ from flask import make_response, jsonify, request
 from flask_restful import Resource
 from models.apartment import Apartment
 from config import db
-from utils import role_required, not_found, server_error, missing_fields, no_input_data
+from utils import role_required, not_found, server_error, missing_fields, no_input_data, get_jwt_role
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
@@ -45,12 +45,22 @@ class Apartments(Resource):
 
 
 class ApartmentByID(Resource):
+    @jwt_required()
     def get(self, id):
         try:
+            current_user_id = get_jwt_identity()
+            current_user_role = get_jwt_role()
+
             apartment = Apartment.query.filter(Apartment.id == id).first()
             if not apartment:
                 return not_found('Apartment')
 
+            if current_user_role == 'manager':
+                # Check if the apartment is managed by the current manager
+                if apartment.manager_id != current_user_id:
+                    return jsonify({"error": "Access denied"}), 403
+
+            # Return the apartment details if access is allowed
             apartment_dict = apartment.to_dict(rules=['-building', '-manager', '-tenant'])
             return make_response(jsonify({'apartment': apartment_dict}), 200)
         except Exception as e:
