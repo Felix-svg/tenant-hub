@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Seed database">
+    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Add utility methods to handle common errors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/apartments.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apartments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721892131318</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add utility methods to handle common errors">
+      <option name="closed" value="true" />
+      <created>1721904232793</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721904232793</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,6 +132,7 @@
     <MESSAGE value="Add column constraints to models" />
     <MESSAGE value="Initialize classes for routes &amp; database seeding file" />
     <MESSAGE value="Seed database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Seed database" />
+    <MESSAGE value="Add utility methods to handle common errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add utility methods to handle common errors" />
   </component>
 </project>
