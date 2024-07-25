@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Add column constraints to models">
+    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Initialize classes for routes &amp; database seeding file">
+      <change afterPath="$PROJECT_DIR$/seed.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/seed.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/seed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/seed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/instance/tenant_hub.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/tenant_hub.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/apartment.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/apartment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/building.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/building.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/lease.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/lease.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/payment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tenant.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/tenant.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/apartments.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apartments.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/buildings.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/buildings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/leases.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/leases.py" afterDir="false" />
@@ -46,6 +56,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/config" />
     </key>
   </component>
@@ -89,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721762648674</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Initialize classes for routes &amp; database seeding file">
+      <option name="closed" value="true" />
+      <created>1721849709328</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721849709328</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,6 +126,7 @@
     <MESSAGE value="Project set up" />
     <MESSAGE value="Define model classes" />
     <MESSAGE value="Add column constraints to models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add column constraints to models" />
+    <MESSAGE value="Initialize classes for routes &amp; database seeding file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initialize classes for routes &amp; database seeding file" />
   </component>
 </project>

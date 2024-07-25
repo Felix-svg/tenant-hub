@@ -1,4 +1,4 @@
-from config.config import db
+from config import db
 from sqlalchemy_serializer import SerializerMixin
 
 
@@ -10,7 +10,7 @@ class Payment(db.Model, SerializerMixin):
     amount = db.Column(db.Float, nullable=False)
     payment_date = db.Column(db.Date, nullable=False, server_default=db.func.now())
 
-    buildings = db.relationship('Building', back_populates='payment')
+    lease = db.relationship('Lease', back_populates='payment')
 
     def __repr__(self):
         return f'Payment amount: {self.amount}'

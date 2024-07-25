@@ -1,4 +1,4 @@
-from config.config import db
+from config import db
 from sqlalchemy_serializer import SerializerMixin
 
 
@@ -10,7 +10,10 @@ class Apartment(db.Model, SerializerMixin):
     building_id = db.Column(db.Integer, db.ForeignKey('buildings.id'))
     rent_amount = db.Column(db.Float, nullable=False)
     manager_id = db.Column(db.Integer, db.ForeignKey('managers.id'))
-    tenants = db.relationship('Tenant', back_populates='apartment')
+
+    tenant = db.relationship('Tenant', back_populates='apartment')
+    building = db.relationship('Building', back_populates='apartment')
+    manager = db.relationship('Manager', back_populates='apartment')
 
     def __repr__(self):
         return f'<Apartment {self.id}>'

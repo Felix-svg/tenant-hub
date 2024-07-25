@@ -1,4 +1,4 @@
-from config.config import db, bcrypt
+from config import db, bcrypt
 from sqlalchemy_serializer import SerializerMixin
 from flask_login import UserMixin
 

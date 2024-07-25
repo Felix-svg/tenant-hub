@@ -1,4 +1,4 @@
-from config.config import db
+from config import db
 from sqlalchemy_serializer import SerializerMixin
 
 
@@ -10,7 +10,8 @@ class Lease(db.Model, SerializerMixin):
     apartment_id = db.Column(db.Integer, db.ForeignKey('apartments.id'))
     start_date = db.Column(db.Date, nullable=False)
     end_date = db.Column(db.Date, nullable=True)
-    payments = db.relationship('Payment', back_populates='lease')
+
+    payment = db.relationship('Payment', back_populates='lease')
 
     def __repr__(self):
         return f'<Lease start date: {self.start_date}, Lease end date: {self.end_date}>'
