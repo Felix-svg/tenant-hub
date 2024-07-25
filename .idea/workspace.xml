@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Add utility methods for getting user role">
-      <change beforePath="$PROJECT_DIR$/routes/tenants.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/tenants.py" afterDir="false" />
-    </list>
+    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Configure tenant details to only be viewd by associated managers" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721933808484</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Configure tenant details to only be viewd by associated managers">
+      <option name="closed" value="true" />
+      <created>1721934237425</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1721934237425</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,6 +264,7 @@
     <MESSAGE value="Restrict lease access to only related manager, and tenants" />
     <MESSAGE value="Restrict payments access to only related manager, and tenants" />
     <MESSAGE value="Add utility methods for getting user role" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add utility methods for getting user role" />
+    <MESSAGE value="Configure tenant details to only be viewd by associated managers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configure tenant details to only be viewd by associated managers" />
   </component>
 </project>

@@ -3,7 +3,7 @@ from flask_restful import Resource
 from models.lease import Lease
 from models.apartment import Apartment
 from config import db
-from utils import role_required, server_error, not_found, get_jwt_role
+from utils import role_required, server_error, not_found, get_jwt_role, no_input_data, missing_fields
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
@@ -53,12 +53,28 @@ class Leases(Resource):
 
 class LeaseByID(Resource):
     @jwt_required()
-    @role_required('manager')
     def get(self, id):
         try:
+            current_user_id = get_jwt_identity()
+            current_user_role = get_jwt_role()
+
             lease = Lease.query.filter(Lease.id == id).first()
             if not lease:
                 return not_found('Lease')
+
+            if current_user_role == 'manager':
+                # Check if the lease is associated with an apartment managed by the current manager
+                apartment = Apartment.query.filter_by(id=lease.apartment_id, manager_id=current_user_id).first()
+                if not apartment:
+                    return make_response(jsonify({"error": "Access denied"}), 403)
+
+            elif current_user_role == 'tenant':
+                # Check if the lease belongs to the current tenant
+                if lease.tenant_id != current_user_id:
+                    return make_response(jsonify({"error": "Access denied"}), 403)
+
+            else:
+                return not_found("User role not found")
 
             lease_dict = lease.to_dict(rules=['-payment'])
             return make_response(jsonify({'lease': lease_dict}), 200)
