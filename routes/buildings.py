@@ -1,16 +1,22 @@
 from flask import make_response, jsonify, request
 from flask_restful import Resource
 from models.building import Building
+from models.apartment import Apartment
 from config import db
 from utils import role_required, not_found, no_input_data, server_error, missing_fields
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
 class Buildings(Resource):
+    @jwt_required()
+    @role_required('manager')
     def get(self):
         try:
-            buildings = [building.to_dict() for building in Building.query.all()]
-            return make_response(jsonify({'buildings': buildings}), 200)
+            manager_id = get_jwt_identity()
+            # Get buildings that have apartments managed by the manager
+            buildings = db.session.query(Building).join(Apartment).filter(Apartment.manager_id == manager_id).all()
+            buildings_dict = [building.to_dict() for building in buildings]
+            return make_response(jsonify({'buildings': buildings_dict}), 200)
         except Exception as e:
             return server_error(e)
 
