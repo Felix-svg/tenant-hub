@@ -1,4 +1,4 @@
-from flask import jsonify
+from flask import jsonify, make_response
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from models.token_block_list import TokenBlocklist
 from models.tenant import Tenant
@@ -36,3 +36,19 @@ def role_required(required_role):
         return decorated_view
 
     return wrapper
+
+
+def not_found(model_instance):
+    return make_response(jsonify({'error': f'{model_instance} not found'}), 404)
+
+
+def server_error(e):
+    return make_response(jsonify({'error': 'Internal Server Error: ' + str(e)}), 500)
+
+
+def missing_fields():
+    return make_response(jsonify({'error': 'Missing required fields'}), 400)
+
+
+def no_input_data():
+    return make_response(jsonify({'error': 'No input data provided'}), 400)

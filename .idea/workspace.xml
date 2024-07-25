@@ -5,29 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Seed database">
-      <change afterPath="$PROJECT_DIR$/models/token_block_list.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/index.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instance/tenant_hub.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/alembic.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/bbdc0eba43df_initial_migration.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/apartment.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/apartment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/building.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/building.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/tenant.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/tenant.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/apartments.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apartments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/buildings.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/buildings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/leases.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/leases.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/managers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/payments.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/payments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/tenants.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/tenants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
