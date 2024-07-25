@@ -56,9 +56,17 @@ class PaymentByID(Resource):
     @role_required('manager')
     def get(self, id):
         try:
+            manager_id = get_jwt_identity()
+
+            # Get the payment by ID
             payment = Payment.query.filter(Payment.id == id).first()
             if not payment:
                 return not_found('Payment')
+
+            # Check if the payment is associated with an apartment managed by the current manager
+            apartment = Apartment.query.filter_by(id=payment.apartment_id, manager_id=manager_id).first()
+            if not apartment:
+                return make_response(jsonify({"error": "Access denied"}), 403)
 
             payment_dict = payment.to_dict()
             return make_response(jsonify({'payment': payment_dict}), 200)
