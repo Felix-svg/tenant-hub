@@ -1,18 +1,28 @@
 from flask import make_response, jsonify, request
 from flask_restful import Resource
 from models.lease import Lease
+from models.apartment import Apartment
 from config import db
-from utils import role_required, not_found, no_input_data, server_error, missing_fields
-from flask_jwt_extended import jwt_required
+from utils import role_required, server_error, not_found, get_jwt_role
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
 class Leases(Resource):
     @jwt_required()
-    @role_required('manager')
     def get(self):
         try:
-            leases = [lease.to_dict(rules=['-payment']) for lease in Lease.query.all()]
-            return make_response(jsonify({'leases': leases}), 200)
+            current_user_id = get_jwt_identity()
+            current_user_role = get_jwt_role()
+
+            if current_user_role == 'manager':
+                leases = db.session.query(Lease).join(Apartment).filter(Apartment.manager_id == current_user_id).all()
+            elif current_user_role == 'tenant':
+                leases = Lease.query.filter_by(tenant_id=current_user_id).all()
+            else:
+                return not_found("User role not found")
+
+            leases_dict = [lease.to_dict(rules=['-payment']) for lease in leases]
+            return make_response(jsonify({'leases': leases_dict}), 200)
         except Exception as e:
             return server_error(e)
 
