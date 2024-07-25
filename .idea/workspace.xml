@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Configure tenant details to only be viewd by associated managers" />
+    <list default="true" id="85749cdc-ef7f-46f3-9e31-4cf6432ef673" name="Changes" comment="Configure single lease details to only be viewd by associated managers">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/leases.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/leases.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -229,7 +232,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721934237425</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Configure single payment details to only be viewd by associated managers">
+      <option name="closed" value="true" />
+      <created>1721934484171</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1721934484171</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Configure single lease details to only be viewd by associated managers">
+      <option name="closed" value="true" />
+      <created>1721934694380</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1721934694380</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,6 +284,8 @@
     <MESSAGE value="Restrict payments access to only related manager, and tenants" />
     <MESSAGE value="Add utility methods for getting user role" />
     <MESSAGE value="Configure tenant details to only be viewd by associated managers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Configure tenant details to only be viewd by associated managers" />
+    <MESSAGE value="Configure single payment details to only be viewd by associated managers" />
+    <MESSAGE value="Configure single lease details to only be viewd by associated managers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configure single lease details to only be viewd by associated managers" />
   </component>
 </project>
